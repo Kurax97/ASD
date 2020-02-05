@@ -54,4 +54,13 @@ Et on affiche le nombre des comparaisons effectuer par la recherche dichotomique
 Question 1.3.2
 --------------
 
-Oui, il existe un pire des cas pour cet algorithme si les marqueurs positives sont les marqueurs les plus petit de la liste  
+Oui, il existe un pire des cas pour cet algorithme si les marqueurs positives sont les marqueurs les plus petit de la liste.
+
+
+Question 1.4.2
+--------------
+
+Oui, car on utilise le mergesort et ce dernier a un pire et un meilleur des cas, mais si on compte pas les nombre de comparaisons effecter par mergesort on a pas de pire et meilleur cas, car pour chaque marqueur on fait une seule comparaison. C3(m) = la longeur de m array des marqueurs et donc le nombre totale des comparaisons et Cm1 = le nombre de comparaison mergesort des markers et Cm2 = le nombre de comparaison mergesort des markers positive + C3(m).
+
+
+ 
