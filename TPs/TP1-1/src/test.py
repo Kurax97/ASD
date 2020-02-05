@@ -138,14 +138,14 @@ if __name__ == "__main__":
 #     print("\n")
     
     # test stategy 2
-    cpt = 0
-    print("Stratégie 2:")
-    print("Negative markers: %s" % (negative_markers2(markers,positive)))
-    print("Nb. comparisons: %d" % (cpt))
-    print("Nb. comparisons merge: %d" % (sorting.cptm))
-    print("Nb. comparisons totale: %d" % (sorting.cptm + cpt))
-    print("\n")
-    
+#     cpt = 0
+#     print("Stratégie 2:")
+#     print("Negative markers: %s" % (negative_markers2(markers,positive)))
+#     print("Nb. comparisons: %d" % (cpt))
+#     print("Nb. comparisons merge: %d" % (sorting.cptm))
+#     print("Nb. comparisons totale: %d" % (sorting.cptm + cpt))
+#     print("\n")
+#     
 #     # test stategy 3
 #     cpt = 0
 #     print("Stratégie 3:")
@@ -181,4 +181,28 @@ if __name__ == "__main__":
 #             print(cpt)
 #             p += 1
 #         f.close()
-#     
+
+    f = open("tp1-test.dat","w+")
+    m = 10000
+    p = 1
+    while p <= m:
+        exp = experience.Experience(p,m)
+        markers = exp.get_markers()
+        positive = exp.get_positive_markers()
+        cpt = 0
+        f.write(str(m)+" "+str(p)+ " ")
+        print(m, p, end=" ")
+        negative_markers1(markers,positive[:p])
+        f.write(str(cpt) + " ")
+        print(cpt, end = " ")
+        cpt = 0
+        negative_markers2(markers,positive[:p])
+        f.write(str(cpt) + " ")
+        print(cpt, end = " ")
+        cpt = 0
+        negative_markers3(markers,positive[:p])
+        f.write(str(cpt) + "\n")
+        print(cpt)
+        p += 1
+    f.close()
+    

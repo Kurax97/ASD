@@ -152,23 +152,33 @@ Question 1.5.6
    :alt: Graph des 3 stratégies pour m = 70
    :align: right
 
-.. image:: ../images/tp1-10.png
+.. image:: ../images/tp1-80.png
    :height: 100px
    :width: 200 px
    :scale: 50 %
    :alt: Graph des 3 stratégies pour m = 80
    :align: right
 
-.. image:: ../images/tp1-10.png
+.. image:: ../images/tp1-90.png
    :height: 100px
    :width: 200 px
    :scale: 50 %
    :alt: Graph des 3 stratégies pour m = 90
    :align: right
 
-.. image:: ../images/tp1-10.png
+.. image:: ../images/tp1-100.png
    :height: 100px
    :width: 200 px
    :scale: 50 %
    :alt: Graph des 3 stratégies pour m = 100
    :align: right
+
+
+
+Conclusion
+----------
+
+On remarque 
+
+
+
