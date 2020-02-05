@@ -115,37 +115,37 @@ def negative_markers3(markers,positive):
 
 
 if __name__ == "__main__":
-#     p = int(sys.argv[1])
-#     m = int(sys.argv[2])
-# 
-#     assert (m > 0), "The number of markers must be greater than 0"
-#     assert (p <= m), "The number of positive markers must be less or equal to the number of markers"
-#     
-#     exp = experience.Experience(p,m)
-#     markers = exp.get_markers()
-#     positive = exp.get_positive_markers()
-#     
-#     print("Markers: %s" % (markers))
-#     print("Positive markers: %s" % (positive))
-#     
-#     print("\n")
-#     
+    p = int(sys.argv[1])
+    m = int(sys.argv[2])
+
+    assert (m > 0), "The number of markers must be greater than 0"
+    assert (p <= m), "The number of positive markers must be less or equal to the number of markers"
+    
+    exp = experience.Experience(p,m)
+    markers = exp.get_markers()
+    positive = exp.get_positive_markers()
+    
+    print("Markers: %s" % (markers))
+    print("Positive markers: %s" % (positive))
+    
+    print("\n")
+    
 #     # test stategy 1
 #     cpt = 0
 #     print("Stratégie 1:")
 #     print("Negative markers: %s" % (negative_markers1(markers,positive)))
 #     print("Nb. comparisons: %d" % (cpt))
 #     print("\n")
-#     
-#     # test stategy 2
-#     cpt = 0
-#     print("Stratégie 2:")
-#     print("Negative markers: %s" % (negative_markers2(markers,positive)))
-#     print("Nb. comparisons: %d" % (cpt))
-#     print("Nb. comparisons merge: %d" % (sorting.cptm))
-#     print("Nb. comparisons totale: %d" % (sorting.cptm + cpt))
-#     print("\n")
-#     
+    
+    # test stategy 2
+    cpt = 0
+    print("Stratégie 2:")
+    print("Negative markers: %s" % (negative_markers2(markers,positive)))
+    print("Nb. comparisons: %d" % (cpt))
+    print("Nb. comparisons merge: %d" % (sorting.cptm))
+    print("Nb. comparisons totale: %d" % (sorting.cptm + cpt))
+    print("\n")
+    
 #     # test stategy 3
 #     cpt = 0
 #     print("Stratégie 3:")
@@ -157,28 +157,28 @@ if __name__ == "__main__":
     
     #Les nombres de comparaisons effectuer par mergesort ne sont pas inclus ici
     
-    for i in range(10,101,10):
-        f = open("tp1-" + str(i) + ".dat","w+")
-        m = i
-        p = 1
-        while p <= m:
-            exp = experience.Experience(p,m)
-            markers = exp.get_markers()
-            positive = exp.get_positive_markers()
-            cpt = 0
-            f.write(str(m)+" "+str(p)+ " ")
-            print(m, p, end=" ")
-            negative_markers1(markers,positive[:p])
-            f.write(str(cpt) + " ")
-            print(cpt, end = " ")
-            cpt = 0
-            negative_markers2(markers,positive[:p])
-            f.write(str(cpt) + " ")
-            print(cpt, end = " ")
-            cpt = 0
-            negative_markers3(markers,positive[:p])
-            f.write(str(cpt) + "\n")
-            print(cpt)
-            p += 1
-        f.close()
-    
+#     for i in range(10,101,10):
+#         f = open("tp1-" + str(i) + ".dat","w+")
+#         m = i
+#         p = 1
+#         while p <= m:
+#             exp = experience.Experience(p,m)
+#             markers = exp.get_markers()
+#             positive = exp.get_positive_markers()
+#             cpt = 0
+#             f.write(str(m)+" "+str(p)+ " ")
+#             print(m, p, end=" ")
+#             negative_markers1(markers,positive[:p])
+#             f.write(str(cpt) + " ")
+#             print(cpt, end = " ")
+#             cpt = 0
+#             negative_markers2(markers,positive[:p])
+#             f.write(str(cpt) + " ")
+#             print(cpt, end = " ")
+#             cpt = 0
+#             negative_markers3(markers,positive[:p])
+#             f.write(str(cpt) + "\n")
+#             print(cpt)
+#             p += 1
+#         f.close()
+#     

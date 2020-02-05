@@ -96,6 +96,12 @@ On remarque que dans la première stratégie on a 68 comparaisons et pour la deu
 On constate que C3 < C2 < C1 donc on effectue beaucoup moins de comparaisons si on a des listes triées et vu que pour les triées on ne fait pas beaucoup de comparaisons c'est mieux de triées les listes dabord.
 
 
+Question 1.5.6
+--------------
 
-Question  
- 
+.. image:: ../src/tp1-10.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
