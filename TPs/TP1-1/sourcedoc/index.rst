@@ -50,7 +50,7 @@ C1(m,p) = la somme de i = 0 à i = p de (m-i) = m + (m-1) + (m-2) + ... + (m-p)
 Question 1.3.1
 --------------
 
-On crée une boucle pour la liste des marqueurs et on cherche chaque element des marqueurs dans la liste des marqueurs positive en utilisant la recherche dichotomique
+On crée une boucle pour la liste des marqueurs et on cherche chaque element des marqueurs dans la liste des marqueurs positive en utilisant la recherche dichotomique.
 On a créer une varibale global dans le fichier sorting pour pouvoir trouver le nombre de comparaison qu'effectue la fonction merge_sort.
 Et on affiche le nombre des comparaisons effectuer par la recherche dichotomique (Cd) et le nombre des comparaisons effectuer par la fonction merge_sort (Cm) et le nombre totale des des comparaisons effectuer: Cm + Cd 
 
@@ -179,7 +179,7 @@ Conclusion
 ----------
 
 Les graphs montrent bien qu'il y a une grande différence entre la première, la deuxième et la troisème stratégie.
-Finalement triées nos listes ne coute pas beacoup et ça diminue le nombre de comparaisons totale beacoup comme on peu remarquer qu'on a pas de liste triés on fait preque 500 fois plus de comparaisons et qu'on a une seule liste triée on a 50 fois plus de comparaisons.
+Finalement trier nos listes ne coute pas beacoup et ça diminue le nombre de comparaisons totale beacoup comme on peu remarquer qu'on a pas de liste triés (pour m = 100 et p = 99) on fait preque 500 fois plus de comparaisons et qu'on a une seule liste triée on a 50 fois plus de comparaisons.
 
 Pour m = 100 et p = 99 stratégie 1 : 5049 comparaisons (500 * nbrs de comparaisons stratégie 3), stratégie 2: 580 (50 * nbrs de comparaisons stratégie 3) et stratégie 3: 100.
 
