@@ -178,7 +178,9 @@ Question 1.5.6
 Conclusion
 ----------
 
-On remarque 
+Les graphs montrent bien qu'il y a une grande différence entre la première, la deuxième et la troisème stratégie.
+Finalement triées nos listes ne coute pas beacoup et ça diminue le nombre de comparaisons totale beacoup comme on peu remarquer qu'on a pas de liste triés on fait preque 500 fois plus de comparaisons et qu'on a une seule liste triée on a 50 fois plus de comparaisons.
 
+Pour m = 100 et p = 99 stratégie 1 : 5049 comparaisons (500 * nbrs de comparaisons stratégie 3), stratégie 2: 580 (50 * nbrs de comparaisons stratégie 3) et stratégie 3: 100.
 
 
