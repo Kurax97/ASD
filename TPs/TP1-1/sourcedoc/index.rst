@@ -99,9 +99,72 @@ On constate que C3 < C2 < C1 donc on effectue beaucoup moins de comparaisons si 
 Question 1.5.6
 --------------
 
-.. image:: ../src/tp1-10.png
+.. image:: ../../images/tp1-10.png
    :height: 100px
    :width: 200 px
    :scale: 50 %
-   :alt: alternate text
+   :alt: Graph des 3 stratégies pour m = 10
+   :align: right
+
+.. image:: ../../images/tp1-20.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: Graph des 3 stratégies pour m = 20
+   :align: right
+
+   .. image:: ../../images/tp1-30.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: Graph des 3 stratégies pour m = 30
+   :align: right
+
+   .. image:: ../../images/tp1-40.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: Graph des 3 stratégies pour m = 40
+   :align: right
+
+   .. image:: ../../images/tp1-50.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: Graph des 3 stratégies pour m = 50
+   :align: right
+
+   .. image:: ../../images/tp1-60.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: Graph des 3 stratégies pour m = 60
+   :align: right
+
+   .. image:: ../../images/tp1-70.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: Graph des 3 stratégies pour m = 70
+   :align: right
+
+   .. image:: ../../images/tp1-10.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: Graph des 3 stratégies pour m = 80
+   :align: right
+
+   .. image:: ../../images/tp1-10.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: Graph des 3 stratégies pour m = 90
+   :align: right
+
+   .. image:: ../../images/tp1-10.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: Graph des 3 stratégies pour m = 100
    :align: right
