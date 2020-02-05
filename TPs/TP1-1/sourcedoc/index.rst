@@ -13,7 +13,11 @@ Experimentateur
 Etat du TP
 ~~~~~~~~~~
 
-Décrivez ici l'état d'avancement du TP.
+Fini.
+
+Binôme : 
+	- Benlamlih Mohammed
+	- Abdesselam Lyes
 
 ~~~~~~~~~~~~~~~~~~~~~~
 Réponses aux questions
@@ -34,7 +38,7 @@ Pour étudier la complexité de cet algorithme on propose de compter le nombre d
 Question 1.2.3
 --------------
 
-Non il n'existe pas un pire et un meilleur des cas, quelque soit l'ordre de  la liste on va effectuer le meme nombre de comparaison.
+Non il n'existe pas un pire et un meilleur des cas, quelque soit l'ordre de la liste on va effectuer le meme nombre de comparaison.
 
 
 Question 1.2.4
@@ -54,13 +58,13 @@ Et on affiche le nombre des comparaisons effectuer par la recherche dichotomique
 Question 1.3.2
 --------------
 
-Oui, il existe un pire des cas pour cet algorithme si les marqueurs positives sont les marqueurs les plus petit de la liste.
+Oui, car on utilise le merge sort et comme on sait le mergesort a un pire et meilleur des cas mais si on ne compte pas le nombre de comparaisons effectuer pas le mergesort (array of positive markers) le nombre de comparaison est stable car pour chaque elements dans la liste on effectue une recharche dichotomique et donc au total le nombre de comparaisons et fixe.
 
 
 Question 1.4.2
 --------------
 
-Oui, car on utilise le mergesort et ce dernier a un pire et un meilleur des cas, mais si on compte pas les nombre de comparaisons effecter par mergesort on a pas de pire et meilleur cas, car pour chaque marqueur on fait une seule comparaison. C3(m) = la longeur de m array des marqueurs et donc le nombre totale des comparaisons et Cm1 = le nombre de comparaison mergesort des markers et Cm2 = le nombre de comparaison mergesort des markers positive + C3(m).
+Oui, car on utilise le mergesort et ce dernier a un pire et un meilleur des cas, mais si on compte pas les nombre de comparaisons effecter par mergesort on a pas de pire et meilleur cas, car pour chaque marqueur on fait une seule comparaison. C3(m) = la longeur de m array des marqueurs (O(n) = n linéaire) et donc le nombre totale des comparaisons est Cm1 = le nombre de comparaison mergesort des markers et Cm2 = le nombre de comparaison mergesort des markers positive + C3(m).
 
 
 Question 1.5.2
@@ -98,7 +102,7 @@ On constate que C3 < C2 < C1 donc on effectue beaucoup moins de comparaisons si 
 
 Question 1.5.6
 --------------
-
+.. _image:tp1-10.png:
 .. image:: ../images/tp1-10.png
    :height: 100px
    :width: 200 px
