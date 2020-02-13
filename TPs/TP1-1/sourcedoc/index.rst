@@ -32,13 +32,13 @@ indiquerez.
 Question 1.2.2
 --------------
 
-Pour étudier la complexité de cet algorithme on propose de compter le nombre de comparaisons effectuer entre les marqueurs (array markers et array positive markers).
+Pour étudier la complexité de cet algorithme on propose de compter le nombre de comparaisons effectuées entre les marqueurs (array markers et array positive markers).
 
 
 Question 1.2.3
 --------------
 
-Non il n'existe pas un pire et un meilleur des cas, quelque soit l'ordre de la liste on va effectuer le meme nombre de comparaison.
+Non il n'existe pas un pire et un meilleur des cas, quelque soit l'ordre de la liste on va effectuer le même nombre de comparaison.
 
 
 Question 1.2.4
@@ -50,21 +50,21 @@ C1(m,p) = la somme de i = 0 à i = p de (m-i) = m + (m-1) + (m-2) + ... + (m-p)
 Question 1.3.1
 --------------
 
-On crée une boucle pour la liste des marqueurs et on cherche chaque element des marqueurs dans la liste des marqueurs positive en utilisant la recherche dichotomique.
-On a créer une varibale global dans le fichier sorting pour pouvoir trouver le nombre de comparaison qu'effectue la fonction merge_sort.
-Et on affiche le nombre des comparaisons effectuer par la recherche dichotomique (Cd) et le nombre des comparaisons effectuer par la fonction merge_sort (Cm) et le nombre totale des des comparaisons effectuer: Cm + Cd 
+On crée une boucle pour la liste des marqueurs et on cherche chaque élément des marqueurs dans la liste des marqueurs positive en utilisant la recherche dichotomique.
+On a créer une varibale globale dans le fichier sorting pour pouvoir trouver le nombre de comparaison qu'effectue la fonction merge_sort.
+Et on affiche le nombre des comparaisons effectuer par la recherche dichotomique (Cd) et le nombre des comparaisons effectuées par la fonction merge_sort (Cm) et le nombre totale des des comparaisons effectuer: Cm + Cd 
 
 
 Question 1.3.2
 --------------
 
-Oui, car on utilise le merge sort et comme on sait le mergesort a un pire et meilleur des cas mais si on ne compte pas le nombre de comparaisons effectuer pas le mergesort (array of positive markers) le nombre de comparaison est stable car pour chaque elements dans la liste on effectue une recharche dichotomique et donc au total le nombre de comparaisons et fixe.
+Oui, car on utilise le merge sort et le mergesort a un pire et meilleur des cas mais si on ne compte pas le nombre de comparaisons effectuées pas le mergesort (array of positive markers) le nombre de comparaison est stable car pour chaque éléments dans la liste on effectue une recherche dichotomique et donc au total le nombre de comparaisons est fixe.
 
 
 Question 1.4.2
 --------------
 
-Oui, car on utilise le mergesort et ce dernier a un pire et un meilleur des cas, mais si on compte pas les nombre de comparaisons effecter par mergesort on a pas de pire et meilleur cas, car pour chaque marqueur on fait une seule comparaison. C3(m) = la longeur de m array des marqueurs (O(n) = n linéaire) et donc le nombre totale des comparaisons est Cm1 = le nombre de comparaison mergesort des markers et Cm2 = le nombre de comparaison mergesort des markers positive + C3(m).
+Oui, car on utilise le mergesort et ce dernier a un pire et un meilleur des cas, mais si on compte pas les nombre de comparaisons effectées par mergesort on a pas de pire et meilleur cas, car pour chaque marqueur on fait une seule comparaison. C3(m) = la longeur de m array des marqueurs (O(n) = n linéaire) et donc le nombre totale des comparaisons est Cm1 = le nombre de comparaison mergesort des markers et Cm2 = le nombre de comparaison mergesort des markers positive + C3(m).
 
 
 Question 1.5.2
@@ -97,7 +97,7 @@ Nb. comparisons totale: 23
 
 On remarque que dans la première stratégie on a 68 comparaisons et pour la deuxième stratégie on obtient 33 comparaisons + 6 comparaisons du mergesort (vu qu'on trie la liste(array) des marqueurs positives) = 39 au total c'est déjà mieux que la première stratégie et finalement dans la troisième stratégie on a 12 comparaisons (la longeur de la liste des marqueurs vu qu'on fait une comparaison par marqueur) + 11 comparaisons du mergesort (vu qu'on trie la liste(array) des marqueurs positives et la liste(array) des marqueurs)
 
-On constate que C3 < C2 < C1 donc on effectue beaucoup moins de comparaisons si on a des listes triées et vu que pour les triées on ne fait pas beaucoup de comparaisons c'est mieux de triées les listes dabord.
+On constate que C3 < C2 < C1 donc on effectue beaucoup moins de comparaisons si on a des listes triées et vu que pour les trier on ne fait pas beaucoup de comparaisons c'est mieux de trier les listes dabord.
 
 
 Question 1.5.6
@@ -179,7 +179,7 @@ Conclusion
 ----------
 
 Les graphs montrent bien qu'il y a une grande différence entre la première, la deuxième et la troisème stratégie.
-Finalement trier nos listes ne coute pas beacoup et ça diminue le nombre de comparaisons totale beacoup comme on peu remarquer qu'on a pas de liste triés (pour m = 100 et p = 99) on fait preque 500 fois plus de comparaisons et qu'on a une seule liste triée on a 50 fois plus de comparaisons.
+Finalement trier nos listes ne coute pas beacoup et ça diminue le nombre de comparaisons totales. Comme on peut remarquer qu'on a pas de liste triées (pour m = 100 et p = 99) on fait preque 500 fois plus de comparaisons et qu'on a une seule liste triée on a 50 fois plus de comparaisons.
 
 Pour m = 100 et p = 99 stratégie 1 : 5049 comparaisons (500 * nbrs de comparaisons stratégie 3), stratégie 2: 580 (50 * nbrs de comparaisons stratégie 3) et stratégie 3: 100.
 
