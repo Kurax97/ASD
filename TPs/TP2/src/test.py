@@ -34,7 +34,7 @@ def cmp(a,b):
     -1
     """
     global cpt
-    cpt = cpt + 1
+    #cpt = cpt + 1
     return Element.cmp(a,b)
 
 if __name__ == "__main__":

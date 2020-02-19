@@ -11,12 +11,6 @@
 import copy
 import random
 import numpy as np
-import element
-import generate
-import test
-import sys
-
-cpt = 0
 
 def merge (t1,t2, cmp):
     """
@@ -29,7 +23,7 @@ def merge (t1,t2, cmp):
     :param cmp: A comparison function, returning 0 if a == b, -1 is a < b, 1 if a > b
     :type cmp: function
     :return: A fresh array, sorted.
-    :rtype: arrayfile.write(str(100)+" "+str(i)+ " ")
+    :rtype: array
     
     .. note::
     
@@ -106,14 +100,12 @@ def merge_sort (t,cmp):
         return merge(t1,t2,cmp)
     
 
-def quicksort (t, w, cmp):
+def quicksort (t,cmp):
     """
     A sorting function implementing the quicksort algorithm
     
     :param t: An array of Element
     :type t: NumPy array
-    :param rand: A boolean, True if we want a random pivot, False if we want the first element to be the pivot
-    :type rand: boolean
     :param cmp: A comparison function, returning 0 if a == b, -1 is a < b, 1 if a > b
     :type cmp: function
     :return: Nothing
@@ -132,7 +124,7 @@ def quicksort (t, w, cmp):
     ...    else:
     ...       return 1
     >>> t = numpy.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
-    >>> quicksort(t, True,cmp)
+    >>> quicksort(t, cmp)
     >>> t
     array([1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=object)
     """
@@ -140,10 +132,10 @@ def quicksort (t, w, cmp):
     p["data"] = t
     p["left"] = 0
     p["right"] = len(t) - 1
-    return quicksort_slice (p, w,cmp)
+    return quicksort_slice (p, cmp)
 
 
-def quicksort_slice (s, w, cmp):
+def quicksort_slice (s, cmp):
     """
     A sorting function implementing the quicksort algorithm
     
@@ -151,8 +143,6 @@ def quicksort_slice (s, w, cmp):
               data, left, right representing resp. an array of objects and left
               and right bounds of the slice.
     :type s: dict
-    :param rand: A boolean, True if we want a random pivot, False if we want the first element to be the pivot
-    :type rand: boolean
     :param cmp: A comparison function, returning 0 if a == b, -1 is a < b, 1 if a > b
     :type cmp: function
     :return: Nothing
@@ -169,32 +159,26 @@ def quicksort_slice (s, w, cmp):
     ...       return 1
     >>> t = numpy.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
     >>> p = {'left':0,'right':len(t)-1,'data':t}
-    >>> quicksort_slice (p, True, cmp)
+    >>> quicksort_slice (p, cmp)
     >>> p
     {'left': 0, 'right': 8, 'data': array([1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=object)}
     >>> t
     array([1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=object)
     """
-    if w == 0:
-        c = s["left"]
-    elif w == 1:
-        c = random_pivot(s)
-    else:
-        c = pivot_optimal(s)
     t = s["data"]
     left = s["left"]
     right = s["right"]
-    if left != right: 
+    if left < right: 
         # pi is partitioning index, arr[p] is now 
         # at right place 
-        s1, s2 = partition(s, c,cmp) 
+        s1, s2 = partition(s,cmp) 
         # Separately sort elements before 
         # partition and after partition 
-        quicksort_slice(s1, w, cmp)
-        quicksort_slice(s2, w, cmp)
+        quicksort_slice(s1, cmp)
+        quicksort_slice(s2, cmp)
 
 
-def partition (s, c, cmp):
+def partition (s, cmp):
     """
     Creates two slices from *s* by selecting in the first slice all
     elements being less than the pivot and in the second one all other
@@ -205,8 +189,6 @@ def partition (s, c, cmp):
               - left: left bound of the slide (a position in the array),
               - right: right bound of the slice.
     :type s: dict
-    :param c: The pivot
-    :type c: int
     :param cmp: A comparison function, returning 0 if a == b, -1 is a < b, 1 if a > b
     :type cmp: function
     :return: A couple of slices, the first slice contains all elements that are 
@@ -226,90 +208,34 @@ def partition (s, c, cmp):
     ...       return 1
     >>> t = numpy.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
     >>> p = {'left':0,'right':len(t)-1,'data':t}
-    
+    >>> p1,p2 = partition(p,cmp)
+    >>> p1['data'][p1['left']:p1['right']+1]
+    array([2, 1, 3, 4], dtype=object)
+    >>> p2['data'][p2['left']:p2['right']+1]
+    array([9, 8, 6, 7], dtype=object)
     """
-    global cpt
     t = s["data"]
-    low = s["left"]
-    hi = s["right"]
-    p = c
-    pivotValue = t[p]
-    t[p], t[low] = t[low], t[p]
-    border = low
-    
-    for i in range(low, hi+1):
-        c = cmp(t[i], pivotValue)
-        cpt += 1
-        if c == -1:
-            border += 1
-            t[i], t[border] = t[border], t[i]
-    t[low], t[border] = t[border], t[low]
-    if border == low:
-        border +=1
-    s1 = { "data" : t, "left" : low, "right" : border-1 }
-    s2 = { "data" : t, "left" : border, "right" : hi }
-    return (s1,s2)   
-
-def random_pivot(s):
-    return random.randint(s["left"], s["right"])
-
-def pivot_optimal(s):
-    t = s["data"]
-    low = s["left"]
-    hi = s["right"]
-    mid = (hi + low) // 2
-    pivot = hi
-    if test.cmp(t[low], t[mid]) == -1: 
-        if test.cmp(t[mid] ,t[hi]) == -1:
-            pivot = mid
-    elif test.cmp(t[low], t[hi]) == -1:
-        pivot = low
-    return pivot
+    left = s["left"]
+    right = s["right"]
+    i = ( left-1 )         # index of smaller element 
+    pivot = t[left]     # pivot 
+    if left == right:
+        return (s,s)
+    else:
+        for j in range(left , right+1): 
+            # If current element is smaller than or 
+            # equal to pivot
+            c = cmp(t[j], pivot)
+            if (c == -1) or (c == 0):
+                # increment index of smaller element 
+                i = i+1 
+                t[i],t[j] = t[j],t[i] 
+        t[i],t[left] = t[left],t[i]
+    s1 = { "data" : t, "left" : left, "right" : i-1 }
+    s2 = { "data" : t, "left" : i+1, "right" : right }
+    return (s1,s2)
 
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    cpt = 0
-    t = np.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
-    quicksort(t, 2, test.cmp)
-    print(cpt)
-    
-    cpt = 0
-    tables = int(sys.argv[1]) 
-    i = 1
-    file=open("results-first-rand-opt"+str(tables)+".dat","w+") 
-    while i <= tables:
-        file.write(str(100)+" "+str(i)+ " ")
-        print (100,i, end=" ")
-        #First experience with a pivot in the first position
-        tab = generate.random_array(i) #Create a table whose size is from 1 to 100 (i vraiant de 1 à 100)
-        quicksort(tab, 0,test.cmp) #Sort with a pivot in the first position (rand = False)
-        print(cpt, end=" ")
-        file.write(str(cpt)+" ")
-        #Second experience with a random pivot
-        cpt = 0 #Reset the counter
-        tab = generate.random_array(i) #Create a table whose size is from 1 to 100 (i vraiant de 1 à 100)
-        quicksort(tab, 1,test.cmp) #Sort with a pivot in the first position (rand = False)
-        print(cpt, end=" ")
-        file.write(str(cpt)+" ")
-        cpt = 0 #Reset the counter
-        #third experience with an optimal pivot
-        tab = generate.random_array(i) 
-        quicksort(tab, 2,test.cmp) #Sort with a random pivot (rand = True)
-        print(cpt, end=" ")
-        file.write(str(cpt) + "\n")
-        i = i + 1
-    file.close()
-        
-         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
+
