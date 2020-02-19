@@ -22,6 +22,11 @@ reprendrez le numéro de la section et le numéro de la question. Par
 exemple pour répondre à la question 3 de la section 2.4 vous
 indiquerez.
 
+
+Binôme:
+-------
+Mohammed Benlamlih et Abdesselam Lyes
+
    
 Question 2.2.1
 --------------
@@ -91,7 +96,7 @@ Question 2.3.2.4
    :alt: Graph pivot en première position, pivot random et pivot optimal
    :align: right
 
-Il sont presque la même complexité.
+Ils ont presque la même complexité.
 
 
 
