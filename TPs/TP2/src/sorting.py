@@ -179,8 +179,10 @@ def quicksort_slice (s, w, cmp):
         c = s["left"]
     elif w == 1:
         c = random_pivot(s)
-    else:
+    elif w == 2:
         c = pivot_optimal(s)
+    else:
+        c = pivot_optimal_cpt(s)
     t = s["data"]
     left = s["left"]
     right = s["right"]
@@ -259,25 +261,42 @@ def pivot_optimal(s):
     hi = s["right"]
     mid = (hi + low) // 2
     pivot = hi
-    if test.cmp(t[low], t[mid]) == -1: 
+    if test.cmp(t[low], t[mid]) == -1:
         if test.cmp(t[mid] ,t[hi]) == -1:
             pivot = mid
     elif test.cmp(t[low], t[hi]) == -1:
         pivot = low
     return pivot
 
+def pivot_optimal_cpt(s):
+    global cpt
+    t = s["data"]
+    low = s["left"]
+    hi = s["right"]
+    mid = (hi + low) // 2
+    pivot = hi
+    if test.cmp(t[low], t[mid]) == -1:
+        cpt += 1
+        if test.cmp(t[mid] ,t[hi]) == -1:
+            cpt += 1
+            pivot = mid
+    elif test.cmp(t[low], t[hi]) == -1:
+        cpt += 1
+        pivot = low
+    return pivot
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    cpt = 0
-    t = np.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
-    quicksort(t, 2, test.cmp)
-    print(cpt)
-    
+#     cpt = 0
+#     t = np.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
+#     quicksort(t, 3, test.cmp)
+#     print(cpt)
+#     
     cpt = 0
     tables = int(sys.argv[1]) 
     i = 1
-    file=open("results-first-rand-opt"+str(tables)+".dat","w+") 
+    file=open("results-first-rand-opt-cpt"+str(tables)+".dat","w+") 
     while i <= tables:
         file.write(str(100)+" "+str(i)+ " ")
         print (100,i, end=" ")
@@ -292,10 +311,16 @@ if __name__ == "__main__":
         quicksort(tab, 1,test.cmp) #Sort with a pivot in the first position (rand = False)
         print(cpt, end=" ")
         file.write(str(cpt)+" ")
+        #Third experience with a optimal pivot
         cpt = 0 #Reset the counter
-        #third experience with an optimal pivot
+        tab = generate.random_array(i) #Create a table whose size is from 1 to 100 (i vraiant de 1 à 100)
+        quicksort(tab, 2,test.cmp) #Sort with a pivot in the first position (rand = False)
+        print(cpt, end=" ")
+        file.write(str(cpt)+" ")
+        #Fourth experience with an optimal pivot and cpt of the optimal_pivot
+        cpt = 0 #Reset the counter
         tab = generate.random_array(i) 
-        quicksort(tab, 2,test.cmp) #Sort with a random pivot (rand = True)
+        quicksort(tab, 3,test.cmp) #Sort with a random pivot (rand = True)
         print(cpt, end=" ")
         file.write(str(cpt) + "\n")
         i = i + 1
