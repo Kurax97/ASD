@@ -91,7 +91,7 @@ Question 2.3.2.4
    :alt: Graph pivot en première position, pivot random et pivot optimal
    :align: right
 
-On remarque que ce n'est plus le meilleur, et cela va etre plus claire si 
+Il sont presque la même complexité.
 
 
 

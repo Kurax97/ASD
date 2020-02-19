@@ -132,7 +132,7 @@ def quicksort (t, w, cmp):
     ...    else:
     ...       return 1
     >>> t = numpy.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
-    >>> quicksort(t, True,cmp)
+    >>> quicksort(t, 1,cmp)
     >>> t
     array([1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=object)
     """
@@ -169,7 +169,7 @@ def quicksort_slice (s, w, cmp):
     ...       return 1
     >>> t = numpy.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
     >>> p = {'left':0,'right':len(t)-1,'data':t}
-    >>> quicksort_slice (p, True, cmp)
+    >>> quicksort_slice (p, 1, cmp)
     >>> p
     {'left': 0, 'right': 8, 'data': array([1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=object)}
     >>> t
@@ -228,7 +228,12 @@ def partition (s, c, cmp):
     ...       return 1
     >>> t = numpy.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
     >>> p = {'left':0,'right':len(t)-1,'data':t}
-    
+    >>> p1,p2 = partition(p, 0,cmp)
+    >>> part1 = p1['data'][p1['left']:p1['right']+1]
+    >>> part2 = p2['data'][p2['left']:p2['right']+1]
+    >>> ltotal = [elm1 < elm2 for elm1 in part1 for elm2 in part2]
+    >>> False in ltotal
+    False
     """
     global cpt
     t = s["data"]
@@ -253,9 +258,23 @@ def partition (s, c, cmp):
     return (s1,s2)   
 
 def random_pivot(s):
+    """
+    return a random number from a slice
+    :param s: the slice that we want the index from
+    :type s: dict
+    :return: a random number from s["left"] and s["right"]
+    :rtype: int
+    """
     return random.randint(s["left"], s["right"])
 
 def pivot_optimal(s):
+    """
+    return the optimal pivot from a slice witch is the median
+    :param s: the slice that we want the optimal pivot for
+    :type s: dict
+    :return: a pivot the median of the slice
+    :rtype: int
+    """
     t = s["data"]
     low = s["left"]
     hi = s["right"]
@@ -269,6 +288,13 @@ def pivot_optimal(s):
     return pivot
 
 def pivot_optimal_cpt(s):
+    """
+    return the optimal pivot from a slice witch is the median
+    :param s: the slice that we want the optimal pivot for
+    :type s: dict
+    :return: a pivot the median of the slice
+    :rtype: int
+    """
     global cpt
     t = s["data"]
     low = s["left"]
@@ -288,11 +314,7 @@ def pivot_optimal_cpt(s):
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-#     cpt = 0
-#     t = np.array([element.Element(i) for i in [5, 6, 1, 3, 4, 9, 8, 2, 7]])
-#     quicksort(t, 3, test.cmp)
-#     print(cpt)
-#     
+    
     cpt = 0
     tables = int(sys.argv[1]) 
     i = 1
@@ -325,16 +347,3 @@ if __name__ == "__main__":
         file.write(str(cpt) + "\n")
         i = i + 1
     file.close()
-        
-         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
