@@ -12,8 +12,11 @@
 Etat du TP
 ~~~~~~~~~~
 
-Décrivez ici l'état d'avancement du TP.
+Fini.
 
+Binôme : 
+	- Benlamlih Mohammed
+	- Abdesselam Lyes
 
 Question 4.2.3
 --------------
@@ -34,3 +37,6 @@ Question 4.3.4
 
 On remarque que plus la taille du filtre est petite, plus on a un pourcentage de faux positifs élevé.
 Et inversement plus la taille du filtre est grande, plus on a un pourcentage de faux positifs petit.
+
+
+Fin.
